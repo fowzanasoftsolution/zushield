@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Zu Shield Content Styles */
+
+/* Blur effect for toxic emails */
+.zu-shield-blurred {
+    filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+    transition: filter 0.3s ease;
+}
+
+/* Warning overlay container */
+.zu-shield-overlay {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Neutralized card */
+.zu-shield-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Reply guard banner */
+.zu-shield-reply-guard {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ensure components don't interfere with Gmail */
+.zu-shield-overlay,
+.zu-shield-card,
+.zu-shield-reply-guard,
+.zu-shield-warning-container,
+.zu-shield-reply-guard-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.zu-shield-overlay *,
+.zu-shield-card *,
+.zu-shield-reply-guard *,
+.zu-shield-warning-container *,
+.zu-shield-reply-guard-container * {
+    box-sizing: border-box;
+}
+
+/* Loading spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Slide down animation for reply guard */
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+}
